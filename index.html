@@ -90,28 +90,126 @@
 
         <section>
             <h3>Module</h3>
+            <pre><code>
+                (function (global, undefined) {
+
+                    //Code goes here...
+
+                }(this));
+            </code></pre>
+        </section>
+
+        <section>
+            <h4>provides incapsulated scope and possibility of retruned value</h4>
+            <pre><code>
+                var m1 = (function (global, undefined) {
+                    var myAwesomeModule = {};
+
+                    myAwesomeModule.awesome = function () {
+                        console.log("doing awesome things...");
+                    };
+
+                    return myAwesomeModule;
+                }(this));
+
+                console.log(myAwesomeModule); //ReferenceError
+                m1.awesome(); //doing awesome things...
+                </code></pre>
         </section>
 
         <section>
             <h3>Constructor</h3>
-        </section>
+            <pre><code>
+                function Car(make) {
+                    this.make = make;
+                };
 
+                Car.prototype.start = function () {
+                    console.log(this.make + ' is starting...');
+                };
+                </code></pre>
+            <pre><code>
+                var car = new Car('bmw');
+
+                car.start(); //bmw is starting...
+                </code></pre>
+        </section>
         <section>
             <h3>IIFE</h3>
+            <pre><code>
+                (function(){ /* useful code */ }());
+            </code></pre>
+            <pre><code>
+                var Car = (function () {
+                    function Car() {}
+
+                    Car.prototype.start = function () {};
+
+                    return Car;
+                }());
+
+                var car = new Car('bmw');
+            </code></pre>
         </section>
 
         <section>
             <h3>Closure</h3>
+            <pre><code>
+                function multiplier(baseValue) {
+                    return function (value) {
+                        return baseValue * value;
+                    }
+                }
+
+                var doubler = multiplier(2);
+
+                doubler(5); // 10
+                doubler(3); // 6
+            </code></pre>
         </section>
 
         <section>
             <h3>Mixin</h3>
+            <pre><code>
+                var flyable = function () {
+                    this.fly = function () {
+                        console.log("I'm flying through the clouds...");
+                    }
+                };
+            </code></pre>
+            <pre><code>
+                function Car (make) {
+                    this.make = make;
+                    //use mixin
+                    flyable.call(this);
+                };
+
+                var car  = new Car('bmw');
+                car.fly(); //I'm flying through the clouds...
+            </code></pre>
         </section>
 
         <section>
             <h3>Callback</h3>
+            <pre><code>
+                function callback(data) {
+                    console.log(data);
+                }
+
+                //events
+                window.onload = callback;
+
+                //async operation
+                jQuery.ajax.get('some-url.com', callback);
+
+                //regular sync operations
+                function sum(value1, value2, callback) {
+                    var result = value1 + value2;
+                    callback(result);
+                }
+            </code></pre>
         </section>
-        
+
         <section>
             <h3>А где паттерны?</h3>
             <img src="images/mem_girl.jpg" alt="">
@@ -121,6 +219,23 @@
 
         <section>
             <h3>Singleton</h3>
+            <p>singleton.js</p>
+            <pre><code>
+                const singleton = {
+                    someProperty: 'someProperty',
+                    someMethod() {
+                        //some method;
+                    }
+                };
+
+                export default singleton;
+            </code></pre>
+            <p>main.js</p>
+            <pre><code>
+                import singleton form './singleton';
+
+                console.log(singleton.someProperty); //someProperty
+            </code></pre>
         </section>
 
         <section>
@@ -145,7 +260,7 @@
             <h3>MVC</h3>
             <img src="images/mvc.png" alt="">
         </section>
-        
+
         <section>
             <h3>Эволюция</h3>
             <img src="images/evolution.jpg" alt="" style="height: 8em;">
@@ -155,17 +270,18 @@
             <h3>Эволюция MVC</h3>
             <img src="images/mvc_mvp_mvvm.jpg" alt="">
         </section>
-        
+
         <section>
             <h3>MVVM</h3>
-            <img src="images/mvvm.png"  style="height: 7em;" alt="">
-            <p><a href="https://ru.wikipedia.org/wiki/Model-View-ViewModel">https://ru.wikipedia.org/wiki/Model-View-ViewModel</a></p>
+            <img src="images/mvvm.png" style="height: 7em;" alt="">
+            <p><a href="https://ru.wikipedia.org/wiki/Model-View-ViewModel">https://ru.wikipedia.org/wiki/Model-View-ViewModel</a>
+            </p>
         </section>
 
         <section class="frameworks">
             <h3>Популярные фреймверки</h3>
-            <img src="images/angular.png"alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="images/vue.png" alt="" ><br>
+            <img src="images/angular.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/vue.png" alt=""><br>
             <img src="images/react.png" alt="">
         </section>
 
@@ -193,7 +309,9 @@
             <img src="images/js_patterns_stoyan.jpg"/>
             <img src="images/js_patterns_addy.jpg"/>
             <ul>
-                <li>Стоян Стефанов - <a target="_blank" href="http://www.millionagents.com/upload/iblock/60a/60a2d4c128b04e20d652754fd627aced.pdf">Шаблоны JavaScript</a></li>
+                <li>Стоян Стефанов - <a target="_blank"
+                                        href="http://www.millionagents.com/upload/iblock/60a/60a2d4c128b04e20d652754fd627aced.pdf">Шаблоны
+                    JavaScript</a></li>
             </ul>
         </section>
 
