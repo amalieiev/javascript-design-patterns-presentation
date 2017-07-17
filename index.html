@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>JavaScript Design Patterns</title>
+
+    <meta name="description" content="An overview of existing solutions">
+    <meta name="author" content="Kostiantyn Tsaregradskyi">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/additionalStyles.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'bower_components/reveal.js/css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <img src="images/js_logo.png" style="height: 200px; border: none; box-shadow: none;">
+            <h3>JavaScript Design Patterns</h3>
+            <p>
+                <small>Автор <a target="_blank" href="mailto: artem.malieiev@gmail.com">Artem Malieiev</a></small>
+            </p>
+        </section>
+
+        <section>
+            <h3>Что такое паттерны?</h3>
+            <img src="images/wtf.jpg" alt="">
+        </section>
+
+        <section>
+            <h3>Паттерны это</h3>
+            <ul>
+                <li>Эффетивные способы решения характерных задач проектирования</li>
+                <li>Обобщенне описание решине задачи, которое можно использовать в различных ситуациях</li>
+                <li>ОО паттерны часто показывают отношение между классами и объектами</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Банда четырёх</h3>
+            <img src="images/gang_of_four.jpg" alt="">
+            <p>1995</p>
+        </section>
+        <section class="classic-patterns">
+            <h3>Классические Паттерны</h3>
+            <ul style="list-style: none; font-size: 0.5em">
+                <li><img src="images/behavioral.png"> — поведенческие</li>
+                <li><img src="images/creational.png"> — порождающие</li>
+                <li><img src="images/structural.png"> — структурные</li>
+            </ul>
+            <img src="images/patterns.jpg" alt="">
+        </section>
+
+        <section class="classic-patterns-js">
+            <h3>Паттерны в JavaScript</h3>
+            <img src="images/na_donishke.jpg" alt="">
+            <p>Всего чуть-чуть, на донышке</p>
+        </section>
+
+        <!--Javascript patterns-->
+
+        <section>
+            <h3>Module</h3>
+        </section>
+
+        <section>
+            <h3>Constructor</h3>
+        </section>
+
+        <section>
+            <h3>IIFE</h3>
+        </section>
+
+        <section>
+            <h3>Closure</h3>
+        </section>
+
+        <section>
+            <h3>Mixin</h3>
+        </section>
+
+        <section>
+            <h3>Callback</h3>
+        </section>
+        
+        <section>
+            <h3>А где паттерны?</h3>
+            <img src="images/mem_girl.jpg" alt="">
+        </section>
+
+        <!--OOP patterns-->
+
+        <section>
+            <h3>Singleton</h3>
+        </section>
+
+        <section>
+            <h3>Factory</h3>
+        </section>
+
+        <section>
+            <h3>Observer</h3>
+        </section>
+
+        <section>
+            <h3>Mediator</h3>
+        </section>
+
+        <section>
+            <h3>Proxy</h3>
+        </section>
+
+        <!--Complex patterns-->
+
+        <section>
+            <h3>MVC</h3>
+            <img src="images/mvc.png" alt="">
+        </section>
+        
+        <section>
+            <h3>Эволюция</h3>
+            <img src="images/evolution.jpg" alt="" style="height: 8em;">
+        </section>
+
+        <section>
+            <h3>Эволюция MVC</h3>
+            <img src="images/mvc_mvp_mvvm.jpg" alt="">
+        </section>
+        
+        <section>
+            <h3>MVVM</h3>
+            <img src="images/mvvm.png"  style="height: 7em;" alt="">
+            <p><a href="https://ru.wikipedia.org/wiki/Model-View-ViewModel">https://ru.wikipedia.org/wiki/Model-View-ViewModel</a></p>
+        </section>
+
+        <section class="frameworks">
+            <h3>Популярные фреймверки</h3>
+            <img src="images/angular.png"alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/vue.png" alt="" ><br>
+            <img src="images/react.png" alt="">
+        </section>
+
+        <section>
+            <h3>Flux</h3>
+            <img src="images/flux.png" alt="">
+        </section>
+
+        <section>
+            <h3>Redux</h3>
+            <img src="images/redux_flow.jpg" alt="" style="height: 14em;">
+            <p><a href="http://redux.js.org/">http://redux.js.org/</a></p>
+        </section>
+
+        <section>
+            <h3>Vuex</h3>
+            <img src="images/vuex.png" alt="" style="height: 14em;">
+            <p><a href="https://vuex.vuejs.org">https://vuex.vuejs.org</a></p>
+        </section>
+
+        <section class="books">
+            <h3>Литература</h3>
+            <img src="images/patterns_gof.jpg" alt="">
+            <img src="images/hf_7.jpeg"/>
+            <img src="images/js_patterns_stoyan.jpg"/>
+            <img src="images/js_patterns_addy.jpg"/>
+            <ul>
+                <li>Стоян Стефанов - <a target="_blank" href="http://www.millionagents.com/upload/iblock/60a/60a2d4c128b04e20d652754fd627aced.pdf">Шаблоны JavaScript</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Вопросы?</h1>
+        </section>
+
+        <section>
+            <p>Эта презентация доступна по адресу - <a target="_blank"
+                                                       href="http://amalieiev.github.io/javascript-design-patterns-presentation">http://amalieiev.github.io/javascript-design-patterns-presentation</a>
+            </p>
+            <p>Презентация создана с помощью <a target="_blank" href="http://lab.hakim.se/reveal-js/">Reveal.js</a></p>
+        </section>
+
+        <section>
+            <h1>Спасибо за внимание</h1>
+        </section>
+    </div>
+
+</div>
+
+<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+<script src="bower_components/reveal.js/js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            {
+                src: 'bower_components/reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {
+                src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            }
+            },
+            {
+                src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function () {
+                return !!document.body.classList;
+            }
+            }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
