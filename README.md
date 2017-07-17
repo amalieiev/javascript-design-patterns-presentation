@@ -1,1 +1,1 @@
-backbone-master-class-presentation
+JavaScript Design Patters Presentation
