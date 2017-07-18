@@ -81,9 +81,9 @@
         </section>
 
         <section class="classic-patterns-js">
-            <h3>Паттерны в JavaScript</h3>
+            <h2>Паттерны в JavaScript</h2>
             <img src="images/na_donishke.jpg" alt="">
-            <p>Всего чуть-чуть, на донышке</p>
+            <h3>Всего чуть-чуть, на донышке</h3>
         </section>
 
         <!--Javascript patterns-->
@@ -219,27 +219,71 @@
 
         <section>
             <h3>Singleton</h3>
-            <p>singleton.js</p>
-            <pre><code>
+            <pre><code class="javascript">
                 const singleton = {
-                    someProperty: 'someProperty',
-                    someMethod() {
-                        //some method;
-                    }
+
+                    //properties and methods...
+
                 };
 
                 export default singleton;
             </code></pre>
+        </section>
+
+        <section>
+            <p>userProfile.js</p>
+            <pre><code class="javascript">
+                const userProfile = {
+                    name: 'John Smith',
+                    id: '123',
+                    logged: true,
+                    isLogged() {
+                        return this.isLogged();
+                    }
+                };
+
+                export default userProfile;
+            </code></pre>
             <p>main.js</p>
             <pre><code>
-                import singleton form './singleton';
+                import user from './userProfile';
 
-                console.log(singleton.someProperty); //someProperty
+                user.name //John Smith
             </code></pre>
         </section>
 
         <section>
             <h3>Factory</h3>
+            <pre><code class="javascript">
+                export default function objectsFactory(type) {
+                    switch (type) {
+                        case 'type1': return new ConcreteType1();
+                        case 'type2': return new ConcreteType2();
+                        case 'type3': return new ConcreteType3();
+                        default: return new ConcreteTypeDefault();
+                    }
+                }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>carsFactory.js</p>
+            <pre><code class="javascript">
+                export default function carsFactory(make) {
+                    switch (make) {
+                        case 'bmw': return new BmwX6();
+                        case 'rangeRover': return new RangeRowerSport();
+                        case 'audi': return new AudiTT();
+                        default: return new Tesla();
+                    }
+                }
+            </code></pre>
+            <p>main.js</p>
+            <pre><code>
+                import carsFactory from './carsFactory';
+
+                const car = carsFactory('bmw');
+            </code></pre>
         </section>
 
         <section>
