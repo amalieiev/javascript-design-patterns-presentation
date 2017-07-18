@@ -288,6 +288,88 @@
 
         <section>
             <h3>Observer</h3>
+            <pre><code class="javascript">
+                function Observer() {
+                    this.events = {};
+                    this.on = function (event, callback) {};
+                    this.off = function (event, callback) {};
+                    this.emit = function (event, payload) {};
+                }
+
+                export default Observer;
+            </code></pre>
+        </section>
+
+        <section>
+            <p>on</p>
+            <pre><code class="javascript">
+                function Observer() {
+                    ...
+                    this.on = function (event, callback) {
+                        if (!this.events[event]) {
+                            this.events[event] = [];
+                        }
+                        this.events[event].push(callback);
+                    };
+                    ...
+                }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>off</p>
+            <pre><code class="javascript">
+        function Observer() {
+            ...
+            this.off = function (event, callback) {
+                if (this.events[event]
+                        && this.events[event].indexOf(callback) !== -1) {
+                    this.events[event]
+                        .splice(this.events[event].indexOf(callback), 1);
+                }
+            };
+            ...
+        }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>emit</p>
+            <pre><code class="javascript">
+                function Observer() {
+                    ...
+                    this.emit = function (event, payload) {
+                        if(this.events[event]) {
+                            this.events[event].forEach((callback) => {
+                                callback(payload);
+                            });
+                        }
+                    };
+                }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>NewsChanel.js</p>
+            <pre><code class="javascript">
+                import Observer from './Observer';
+
+                export function NewsChanel() {
+                    Observer.call(this);
+                }
+            </code></pre>
+            <p>main.js</p>
+            <pre><code class="javascript">
+                import NewsChanel from './NewsChanel';
+
+                const log = data => console.log(data);
+                const chanel = new NewsChanel();
+
+                chanel.on('news', log);
+                chanel.emit('news', 'lorem ipsum...');//lorem ipsum...
+                chanel.off('news', log);
+                chanel.emit('news', 'lorem ipsum...');//undefined
+            </code></pre>
         </section>
 
         <section>
