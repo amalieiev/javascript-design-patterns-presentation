@@ -374,6 +374,110 @@
 
         <section>
             <h3>Mediator</h3>
+            <pre><code>
+                const Mediator = {
+                    register(member) {
+                        member.on('event', payload => {
+                            otherMember.doSomething(payload);
+                        });
+                    }
+                };
+
+                class Member {
+                    constructor() {
+                        Observer.call(this);
+                    }
+                }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>Dealer.js</p>
+            <pre><code class="javascript">
+                const Dealer = {
+                    buyers: [],
+                    sellers: [],
+                    register(member) {},
+                    request(product) {}
+                };
+            </code></pre>
+        </section>
+
+        <section>
+            <p>register</p>
+            <pre><code class="javascript">
+                const Dealer = {
+                    ...
+                    register(member) {
+                        member.on('sell', product => {
+                            this.sellers.push({ member, product });
+                            this.request(product);
+                        });
+                        member.on('buy', product => {
+                            this.buyers.push({ member, product });
+                            this.request(product);
+                        });
+                    }
+                    ...
+                };
+            </code></pre>
+        </section>
+
+        <section>
+            <p>request</p>
+            <pre><code class="javascript">
+        const Dealer = {
+            request(product) {
+                const seller = this.sellers.find(seller =>
+                    seller.product === product);
+                const buyer = this.buyers.find(buyer => {
+                    buyer.product === product);
+                if (seller && buyer) {
+                    seller.member.sell(product, buyer.member);
+                    buyer.member.buy(product, seller.member);
+                    this.sellers.splice(this.sellers.indexOf(seller), 1);
+                    this.buyers.splice(this.buyers.indexOf(buyer), 1);
+                }
+            }
+        };
+            </code></pre>
+        </section>
+
+        <section>
+            <p>Member.js</p>
+            <pre><code class="javascript">
+    class Member {
+        constructor(name) {
+            this.name = name;
+            Observer.call(this);
+        }
+        sell(product, buyer) {
+            console.log(`${this.name} sells ${product} to ${buyer.name}`);
+        }
+        buy(product, seller) {
+            console.log(`${this.name} buys ${product} from ${seller.name}`);
+        }
+    }
+            </code></pre>
+        </section>
+
+        <section>
+            <p>main.js</p>
+            <pre><code class="javascript">
+                const fill = new Member('fill');
+                const adam = new Member('adam');
+                const joe = new Member('joe');
+
+                Dealer.register(fill);
+                Dealer.register(adam);
+                Dealer.register(joe);
+
+                fill.emit('sell', 'bmw');
+                fill.emit('buy', 'iphone');
+                adam.emit('buy', 'audi');
+                adam.emit('sell', 'iphone');// adam sells iphone to fill
+                                            // fill buys iphone from adam
+            </code></pre>
         </section>
 
         <section>
