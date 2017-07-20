@@ -482,6 +482,22 @@
 
         <section>
             <h3>Proxy</h3>
+            <pre><code class="javascript">
+                const original = {
+                    //properties and methods
+                };
+
+                const proxy = new Proxy(original, {
+                    set(obj, prop, value) {
+                        //intercession
+                        obj[prop] = value;
+                    },
+                    get(obj, prop) {
+                        //intercession
+                        return obj[prop];
+                    }
+                });
+            </code></pre>
         </section>
 
         <!--Complex patterns-->
@@ -489,11 +505,6 @@
         <section>
             <h3>MVC</h3>
             <img src="images/mvc.png" alt="">
-        </section>
-
-        <section>
-            <h3>Эволюция</h3>
-            <img src="images/evolution.jpg" alt="" style="height: 8em;">
         </section>
 
         <section>

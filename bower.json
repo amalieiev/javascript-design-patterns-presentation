@@ -1,14 +1,15 @@
 {
-  "name": "Backbone.js-master-class-presentation",
+  "name": "javascript patterns presentation",
   "version": "0.0.1",
-  "description": "Presentation for master-class",
+  "description": "javascript patterns presentation",
   "main": "index.html",
   "authors": [
-    "Kostiantyn Tsaregradskyi"
+    "Artem Malieiev"
   ],
   "keywords": [
     "presentation",
-    "backbone"
+    "javascript",
+    "patterns"
   ],
   "license": "MIT",
   "ignore": [
@@ -19,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "reveal.js": "~3.5.0"
+    "reveal.js": "~2.6.2"
   }
 }
