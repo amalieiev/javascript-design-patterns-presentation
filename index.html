@@ -500,6 +500,64 @@
             </code></pre>
         </section>
 
+        <section>
+            <p>Human.js</p>
+            <pre><code class="javascript">
+class Human {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`Hello from ${this.name}, I'm ${this.age} years old!`);
+    }
+}
+
+export default Human;
+            </code></pre>
+        </section>
+
+        <section>
+            <p>HumanProxy.js</p>
+            <pre><code class="javascript">
+        class HumanProxy {
+            constructor(human) {
+                return new Proxy(human, {
+                    set(obj, prop, value) {
+                        if (prop === 'age') {
+                            if (Number.isInteger(value) && value > 0) {
+                                obj[prop] = value;
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        export default HumanProxy;
+            </code></pre>
+        </section>
+
+        <section>
+            <p>main.js</p>
+            <pre><code class="javascript">
+                import Human from './Human';
+                import HumanProxy from './HumanProxy';
+
+                const human = new Human('Joe', 23);
+                const humanProxy = new HumanProxy(human);
+
+                humanProxy.age// 23
+                humanProxy.age = -100500;
+                humanProxy.greet();//Hello from Joe, I'm 23 years old!
+                humanProxy.age = 30;
+                humanProxy.greet();//Hello from Joe, I'm 30 years old!
+
+                human// {name: 'Joe', age: 30}
+            </code></pre>
+        </section>
+
         <!--Complex patterns-->
 
         <section>
